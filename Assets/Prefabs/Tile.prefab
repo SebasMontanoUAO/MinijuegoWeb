@@ -99,10 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dd702a80d62084d8481677e96e1d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0.28778648, g: 1, b: 0, a: 1}
-  offsetColor: {r: 0, g: 0.6981132, b: 0.09661459, a: 1}
+  baseColor: {r: 0.9924528, g: 0.825155, b: 0.44754004, a: 1}
+  offsetColor: {r: 0.735849, g: 0.4945325, b: 0.03748659, a: 1}
   spriteRenderer: {fileID: 2281953064918129632}
   highlight: {fileID: 7054114899086299913}
+  onTop: {fileID: 0}
+  onBottom: {fileID: 0}
+  onRight: {fileID: 0}
+  onLeft: {fileID: 0}
 --- !u!61 &8336935662568235690
 BoxCollider2D:
   m_ObjectHideFlags: 0
