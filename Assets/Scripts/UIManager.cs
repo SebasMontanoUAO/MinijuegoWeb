@@ -28,4 +28,5 @@ public class UIManager : MonoBehaviour
     {
         panelWin.SetActive(true);
     }
+
 }

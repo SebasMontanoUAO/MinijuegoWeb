@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lvl. 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 702a6d179a76c444fa85a0275725f804, type: 2}
+  m_sharedMaterial: {fileID: -7771253950773317565, guid: 702a6d179a76c444fa85a0275725f804, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294961920
-  m_fontColor: {r: 0, g: 0.9219928, b: 1, a: 1}
+    rgba: 4280431203
+  m_fontColor: {r: 0.38823533, g: 0.19607845, b: 0.13333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.21
-  m_fontSizeBase: 0.21
+  m_fontSize: 0.15
+  m_fontSizeBase: 0.15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 4461981360402602404}
+  productionInterval: 2
+  baseProduction: 1
 --- !u!95 &7030698548653824516
 Animator:
   serializedVersion: 5
