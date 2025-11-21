@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class Tile : MonoBehaviour
 {
@@ -116,6 +116,7 @@ public class Tile : MonoBehaviour
         _element = element;
         hasElement = true;
         _element.gameObject.transform.position = this.transform.position;
+        if(GridName.Equals("GridManager")) element.startGenerating();
     }
 
     public void UnlinkElement()
@@ -216,5 +217,11 @@ public class Tile : MonoBehaviour
 
         Debug.Log($"Se combinaron {tiles.Count} tiles de tipo {mergeTile.Element.tag} nivel {mergeTile.Element.GetLevel()}!");
         CheckForMerge();
+        CheckForFullGrid();
+    }
+
+    public void CheckForFullGrid()
+    {
+        if (_gridManager.IsFull()) GameManager.Instance.TriggerGameOver();
     }
 }

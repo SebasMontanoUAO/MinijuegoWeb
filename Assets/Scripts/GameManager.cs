@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float dragReturnSpeed = 10f;
+    [SerializeField]
+    public int money = 25;
+    [SerializeField]
+    private TextMeshProUGUI moneyText;
 
     private Tile _selectedTile;
     private Tile _targetTile;
@@ -23,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        moneyText.text = money.ToString();
+
         if (_draggedElement == null)
             return;
 
@@ -53,9 +60,12 @@ public class GameManager : MonoBehaviour
     {
         if (tile.HasElement && _draggedElement == null)
         {
-            _selectedTile = tile;
-            _draggedElement = tile.Element.gameObject;
-            Debug.Log($"Arrastrando desde {tile.name} en {tile.GridName}");
+            if (tile.GridName != "GridManager")
+            {
+                _selectedTile = tile;
+                _draggedElement = tile.Element.gameObject;
+                Debug.Log($"Arrastrando desde {tile.name} en {tile.GridName}");
+            }
         }
     }
 
@@ -86,6 +96,7 @@ public class GameManager : MonoBehaviour
             from.SetHasElement(false);
             Debug.Log($"Elemento movido de {from.name} en {from.GridName} a {to.name} en {to.GridName}");
             to.CheckForMerge();
+            to.CheckForFullGrid();
         }
         else
         {
@@ -128,5 +139,19 @@ public class GameManager : MonoBehaviour
         if (_selectedTile == originTile) _selectedTile = null;
         if (_targetTile == originTile) _targetTile = null;
         if (_draggedElement == cachedDrag) _draggedElement = null;
+    }
+
+    public void TriggerGameOver()
+    {
+        Debug.Log($"Se ha llenado la grid");
+
+        UIManager.Instance.ShowGameOverPanel();
+    }
+
+    public void TriggerWin(Element element)
+    {
+        Debug.Log($"GAME OVER: {element.gameObject.tag} alcanzó el nivel 10");
+
+        UIManager.Instance.ShowWinPanel();
     }
 }
